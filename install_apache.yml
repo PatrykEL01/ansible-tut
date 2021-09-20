@@ -5,6 +5,7 @@
   tasks: 
 
   - name: install update
+    tags: always
     apt:
       upgrade: dist
       update_cache: yes
@@ -20,6 +21,14 @@
         - libapache2-mod-php
       state: latest
       update_cache: yes
+  
+  - name: copy default html for site
+    copy:
+      src: default_site.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: 0644
 
 
 - hosts: dbserw
@@ -40,3 +49,5 @@
     package:
       name: samba
       state: latest
+
+  
