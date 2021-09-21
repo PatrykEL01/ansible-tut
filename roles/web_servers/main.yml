@@ -1,8 +1,8 @@
  - name: install apache, php and update
    apt:
       name: 
-        -  apache2
-        - libapache2-mod-php
+        -  "{{ apache_package_name }}"
+        -  "{{ php_package_name }}"
       state: latest
       update_cache: yes
   
@@ -12,7 +12,7 @@
      dest: /var/www/html/index.html
      owner: root
      group: root
-     mode: 0644
+     mode: 064 4
 
  - name: install unzip
    package:
