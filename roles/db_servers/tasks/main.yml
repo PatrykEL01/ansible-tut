@@ -1,0 +1,4 @@
+- name: install db
+  apt:
+    name: mariadb-server
+    state: latest
